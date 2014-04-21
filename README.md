@@ -20,3 +20,6 @@ This repository contains few recipes to help people create their own little dist
 - Document wifi network set up
 - Document the Wiimote support
 - Document MySQL support (set up and credentials)
+
+# Recipes #
+1. [Rootfs recipe](01-rootfs-recipe.md)
