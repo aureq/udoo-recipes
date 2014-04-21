@@ -145,7 +145,7 @@ Note: it is very important you set DEVICE to the right device (/dev/sd?). Failin
     # mkdosfs -n udoo-quad ${DEVICE}1
     # mke2fs -t ext4 -L rootfs -O dir_index -m 0 ${DEVICE}2
     # tune2fs -e remount-ro ${DEVICE}2
-    # mke2fs -t ext4 -L rootfs -O dir_index -m 0 ${DEVICE}3
+    # mke2fs -t ext4 -L xbmcdata -O dir_index -m 0 ${DEVICE}3
       (This partition may contain your Xbmc settings, make sure you have a backup before creating the filesystem.)
     # tune2fs -e remount-ro ${DEVICE}3
     # mount ${DEVICE}1 media/bootfs
