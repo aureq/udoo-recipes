@@ -64,7 +64,7 @@ Note: it's very important you set `DEVICE` correctly (/dev/sd?). Failing to do s
 	/dev/sdh3 : start=  2368384, size=  1621120, Id=83
 	/dev/sdh4 : start=        0, size=        0, Id= 0
 
-## # External resources # ##
+## External resources ##
 
 - [http://udoo.org/download/files/Documents/UDOO_Starting_Manual_beta0.4_11_28_2013.pdf](http://udoo.org/download/files/Documents/UDOO_Starting_Manual_beta0.4_11_28_2013.pdf) (Section 2.4)
 - [http://jas-hacks.blogspot.co.uk/2013/10/imx6-ubuntu-1304-with-gpu-acceleration.html](http://jas-hacks.blogspot.co.uk/2013/10/imx6-ubuntu-1304-with-gpu-acceleration.html)
