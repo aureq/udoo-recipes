@@ -93,7 +93,10 @@ Sometimes, this is necessary if you don't have much free memory available.
 
     # git clone git://github.com/wolfgar/xbmc.git xbmc-imx6
     # cd xbmc-imx6
-    # git checkout -b compile e26d58c7bfa888b3420660d5be0956be448f16b5
+    # git remote add xbmc https://github.com/xbmc/xbmc.git
+    # git fetch xbmc -a
+    # git checkout -b merger-Gotham-beta4
+    # git merge Gotham_beta4
     # make -C lib/taglib
     # make -C lib/taglib install
     # ln -s /usr/src/linux/include/linux/ipu.h /usr/include/linux/
