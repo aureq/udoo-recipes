@@ -7,7 +7,7 @@ This repository contains few recipes to help people create their own little dist
 
 # Ackowledgements #
 
-- Stéphan Raffin for implementing the imx6 hardware support in Xbmc and the Yocto image.
+- [http://stephan-rafin.net/blog/](Stéphan Raffin) for implementing the imx6 hardware support in Xbmc and the Yocto image.
 - The Udoo community.
 - Anyone who was kind enough to publish their work on Internet.
 
