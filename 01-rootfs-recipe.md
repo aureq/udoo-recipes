@@ -169,7 +169,7 @@
 	exit 0
 
 
-## # External resources # ##
+## External resources ##
 
 - [https://wiki.debian.org/EmDebian/CrossDebootstrap](https://wiki.debian.org/EmDebian/CrossDebootstrap)
 - [https://wiki.debian.org/QemuUserEmulation](https://wiki.debian.org/QemuUserEmulation)
