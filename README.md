@@ -11,3 +11,12 @@ This repository contains few recipes to help people create their own little dist
 - The Udoo community.
 - Anyone who was kind enough to publish their work on Internet.
 
+# Known Issues #
+- Unsure if CEC is working or not.
+- Udoo doesn't power-off when Xbmc exits
+- Reboot fails and requires a power cycle
+
+# To-do #
+- Document wifi network set up
+- Document the Wiimote support
+- Document MySQL support (set up and credentials)
