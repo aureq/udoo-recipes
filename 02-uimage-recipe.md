@@ -74,3 +74,7 @@ Note: it's very important you set `DEVICE` correctly (/dev/sd?). Failing to do s
 - [http://eewiki.net/display/linuxonarm/Wandboard](http://eewiki.net/display/linuxonarm/Wandboard)
 - [https://romanrm.net/a10/cross-compile-kernel](https://romanrm.net/a10/cross-compile-kernel)
 - [https://github.com/wolfgar/Kernel_Unico.git](https://github.com/wolfgar/Kernel_Unico.git) (Stéphan Rafin)
+
+# Licence #
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Udoo recipes</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://au.linkedin.com/in/aurelienrequiem/" property="cc:attributionName" rel="cc:attributionURL">Aurélien Requiem</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/aureq/udoo-recipes" rel="dct:source">https://github.com/aureq/udoo-recipes</a>.

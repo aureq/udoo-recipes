@@ -184,3 +184,7 @@ Alternatively, if you know your system is already booting correctly, you may onl
 - [https://github.com/huceke/buildroot-rbp](https://github.com/huceke/buildroot-rbp)
 - [http://elinux.org/RPi_XBMC](http://elinux.org/RPi_XBMC)
 - [http://boundarydevices.com/mx6-video-acceleration-raring-debian/](http://boundarydevices.com/mx6-video-acceleration-raring-debian/)
+
+# Licence #
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Udoo recipes</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://au.linkedin.com/in/aurelienrequiem/" property="cc:attributionName" rel="cc:attributionURL">Aurélien Requiem</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/aureq/udoo-recipes" rel="dct:source">https://github.com/aureq/udoo-recipes</a>.
