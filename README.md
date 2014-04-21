@@ -23,3 +23,5 @@ This repository contains few recipes to help people create their own little dist
 
 # Recipes #
 1. [Rootfs recipe](01-rootfs-recipe.md)
+2. [uImage recipe](02-uimage-recipe.md)
+3. [XBMC recipe](03-xbmc-recipe.md)
