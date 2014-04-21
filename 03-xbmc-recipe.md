@@ -101,7 +101,6 @@ Sometimes, this is necessary if you don't have much free memory available.
     # make -C lib/taglib install
     # ln -s /usr/src/linux/include/linux/ipu.h /usr/include/linux/
     # ./bootstrap
-
     # ./configure --prefix=/imx6/xbmc --disable-x11 --disable-sdl \
                   --disable-xrandr --disable-gl --disable-vdpau \
                   --disable-vaapi --disable-openmax --enable-neon \
