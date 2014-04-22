@@ -67,6 +67,13 @@
 
 # Resources #
 
+## conf/bootfs.txt ##
+
+	mmc dev 0
+	setenv bootargs console=ttymxc1,115200 root=/dev/mmcblk0p2 rootwait video=mxcfb0:dev=hdmi,1920x1080@60,if=RGB24,bpp=16 consoleblank=0 dmfc=3
+	fatload mmc 0 0x10800000 uImage
+	bootm 0x10800000
+
 ##  conf/interfaces  ##
 	# interfaces(5) file used by ifup(8) and ifdown(8)
 	auto lo
