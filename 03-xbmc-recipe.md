@@ -28,6 +28,7 @@ This section assumes you're running the current shell in the chroot environment.
 Freescale provides a number of librairies which are subject to a licence agreement (EULA) which you need to accept. If you plan on redistributing your distribution, you should make sure to include this licence and inform the final user about it.
 
     # cp  kernel/include/linux/mxcfb.h xbmc-build/usr/include/linux/
+    # cp  kernel/include/linux/pxp_dma.h xbmc-build/usr/include/linux/
     # LC_ALL=C LANGUAGE=C LANG=C chroot xbmc-build/ bash -l
     # cd ~
     # mkdir work
