@@ -15,7 +15,7 @@ This repository contains few recipes to help people create their own little dist
 - Debian 7, x64, 4 CPUs, 4GB ram
 
 # Known Issues #
-- CEC is not working due to a wiring issue on the udoo board (as explained by [Stéphan Rafin](http://stephan-rafin.net/blog/).
+- CEC is not working due to a wiring issue on the udoo board (as explained by [Stéphan Rafin](http://stephan-rafin.net/blog/)).
 - Udoo doesn't power-off when Xbmc exits
 - Reboot fails and requires a power cycle
 
