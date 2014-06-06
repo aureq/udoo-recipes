@@ -1,6 +1,6 @@
 # Preparing your environment #
 
-    # apt-get install git build-essential fakeroot kernel-package u-boot-tools zlib1g-dev libncurses5-dev dosfstools lzop
+    # apt-get install git build-essential fakeroot kernel-package u-boot-tools zlib1g-dev libncurses5-dev dosfstools lzop bc
     # echo 'deb http://www.emdebian.org/debian/ unstable main' > /etc/apt/sources.list.d/emdebian.list
     You can safely ignore Failed to fetch http://www.emdebian.org/debian/dists/unstable/Release  Unable to find expected entry 'main/binary-armhf/Packages' in Release file (Wrong sources.list entry or malformed file)
     # for x in /usr/bin/arm-linux-gnueabihf-*-4.7; do ln -s $x $(echo $x | sed -e 's/-4.7//g' | sed -e 's#/usr/bin/#/usr/local/bin/#g' ); done
