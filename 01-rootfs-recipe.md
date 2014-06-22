@@ -18,7 +18,7 @@
 
 # Validating your environment #
 
-    # wget http://http.us.debian.org/debian/pool/main/h/hello/hello_2.8-4_armhf.deb
+    # wget http://http.us.debian.org/debian/pool/main/h/hello/hello_2.8-2_armhf.deb
       (Fetch an ARM Hard-float package.)
     # mkdir rootfs
     # dpkg -x hello_2.8-4_armhf.deb rootfs/
