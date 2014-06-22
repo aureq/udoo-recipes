@@ -11,7 +11,7 @@ This part reuses the same technique to recreate a working armhf environment. It 
     # mount -t proc proc xbmc-build/proc/
     # mount -t devpts devpts xbmc-build/dev/pts
     # chroot xbmc-build/ sh -c 'echo "deb http://cdn.debian.net/debian/ wheezy main contrib non-free\ndeb-src http://cdn.debian.net/debian/ wheezy main contrib non-free" >/etc/apt/sources.list'
-    # chroot xbmc-build/ sh -c 'echo "deb http://security.debian.org/ wheezy/updates main\ndeb-src http://security.debian.org/ wheezy/updates main" >> >/etc/apt/sources.list'
+    # chroot xbmc-build/ sh -c 'echo "deb http://security.debian.org/ wheezy/updates main\ndeb-src http://security.debian.org/ wheezy/updates main" >> /etc/apt/sources.list'
     # chroot xbmc-build/ apt-get update
     # LC_ALL=C LANGUAGE=C LANG=C chroot xbmc-build/ apt-get install build-essential git subversion bison flex texinfo gettext autoconf libtool patch python
     # LC_ALL=C LANGUAGE=C LANG=C chroot xbmc-build/ apt-get install -V libsmbclient libsmbclient-dev libssh-4 libssh-dev libavahi-client3 libavahi-client-dev libmicrohttpd10 libmicrohttpd-dev libtinyxml2.6.2 libtinyxml2-dev libyajl2 libyajl-dev libbluetooth3 libbluetooth-dev liblzo2-2 liblzo2-dev libjpeg8 libjpeg8-dev libpython2.7 python-dev python-support python-imaging libfribidi0 libfribidi-dev libpcre3 libpcre3-dev libpcrecpp0 libfreetype6 libfreetype6-dev libasound2 libasound2-dev libdbus-1-3 libdbus-1-dev libmysqlclient-dev libmysqlclient18 libcdio-dev libcdio13 libudev-dev libass4 libass-dev libboost1.49-all-dev zip yasm libmodplug-dev libmodplug1 libbz2-dev libtiff4 libtiff4-dev libcwiid-dev libcwiid1 libtinyxml-dev libxslt1-dev libxslt1.1 curl swig2.0 openjdk-6-jre gawk gperf libvorbis-dev libcap-dev
