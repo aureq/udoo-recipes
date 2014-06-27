@@ -83,18 +83,6 @@ There's few differences between udoo-quad and the wandboard-quad. You need to ch
 
 # Resources #
 
-##  conf/interfaces  ##
-	# interfaces(5) file used by ifup(8) and ifdown(8)
-	auto lo
-	iface lo inet loopback
-	 
-	auto eth0
-	iface eth0 inet dhcp
-	 
-	auto wlan0
-	iface wlan0 inet dhcp
-	        wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-
 ## scripts/ssh-keys ##
 	#!/bin/sh -e
 	### BEGIN INIT INFO
