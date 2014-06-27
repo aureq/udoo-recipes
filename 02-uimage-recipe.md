@@ -107,6 +107,8 @@ Note: it's **very important** you set `DEVICE` correctly (/dev/sd?). Failing to 
 
 # Preparing for system boot #
 
+You may want to edit your `conf/bootfs-${TARGET_SYSTEM}.txt` u-boot boot script and set an appropriate resolution supported by your TV/Screen. You should only need to adjust the resolution and the refresh rate.
+
 ## for udoo-quad ##
 
 `FIXME` revalidate these steps with latest kernel and latest u-boot
