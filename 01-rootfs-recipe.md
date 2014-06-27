@@ -18,33 +18,47 @@
 
 # Validating your environment #
 
-    # wget http://http.us.debian.org/debian/pool/main/h/hello/hello_2.8-2_armhf.deb
+    # mkdir /home/workspace
+    # cd /home/workspace
+    # wget http://http.us.debian.org/debian/pool/main/h/hello/hello_2.9-1_armhf.deb
       (Fetch an ARM Hard-float package.)
     # mkdir rootfs
-    # dpkg -x hello_2.8-4_armhf.deb rootfs/
+    # dpkg -x hello_2.9-1_armhf.deb rootfs/
       (Unpack your package in the target directory.)
     # ./rootfs/usr/bin/hello
       (Run your foreign package. Hello, world! should be displayed on your terminal.)
 
 # Rootfs creation #
 
-    # mkdir udoo
-    # cd udoo
+## Architecture ##
+There's few differences between udoo-quad and the wandboard-quad. You need to choose one depending on your own device.
+
+    # export TARGET_SYSTEM="wbquad"
+    (If your board is a wandboard quad)
+    # export TARGET_SYSTEM="udoo-quad"
+    (If your board is a udoo-quad)
+
+## Commands ##
+
+    # mkdir /home/workspace
+    # cd /home/workspace
+    # mkdir scripts conf
     # mkdir -p rootfs/usr/bin
     # cp -p /usr/bin/qemu-arm-static rootfs/usr/bin
     # /usr/sbin/debootstrap --foreign --arch armhf wheezy rootfs/ http://cdn.debian.net/debian/
     # DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ /debootstrap/debootstrap --second-stage
     # DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ dpkg --configure -a
     # mount -t proc proc rootfs/proc/
-    # echo 'mxc1:12345:respawn:/sbin/getty 115200 ttymxc1' >> rootfs/etc/inittab
+    # [ "$TARGET_SYSTEM" = "udoo-quad" ] && echo 'mxc1:12345:respawn:/sbin/getty 115200 ttymxc1' >> rootfs/etc/inittab
+    # [ "$TARGET_SYSTEM" = "udoo-quad" ] && echo 'mxc0:12345:respawn:/sbin/getty 115200 ttymxc0' >> rootfs/etc/inittab
     # sed -i -e 's/^\([1-6]:23.*\)/#\1/g' rootfs/etc/inittab
     # chroot rootfs/ sh -c "cd /dev; mknod --mode=660 ttyS0 c 4 64 && chmod +t ttyS0 "
     # chroot rootfs/ sh -c "cd /dev; mknod --mode=660 ttymxc0 c 207 16 && chmod +t ttymxc0"
     # chroot rootfs/ sh -c "cd /dev; mknod --mode=660 ttymxc1 c 207 17 && chmod +t ttymxc1"
     # chroot rootfs/ sh -c "cd /dev; mknod --mode=660 ttymxc2 c 207 18 && chmod +t ttymxc2"
     # chroot rootfs/ sh -c "cd /dev; mknod --mode=660 ttymxc3 c 207 19 && chmod +t ttymxc3"
-    # chroot rootfs/ sh -c "sed -i -e 's/\(localhost$\)/udoo-quad \1/g' /etc/hosts"
-    # chroot rootfs/ sh -c "echo udoo-quad > /etc/hostname"
+    # chroot rootfs/ sh -c "sed -i -e 's/\(localhost$\)/${TARGET_SYSTEM} \1/g' /etc/hosts"
+    # chroot rootfs/ sh -c "echo ${TARGET_SYSTEM} > /etc/hostname"
     # chroot rootfs/ passwd
     # chroot rootfs/ sh -c 'echo "deb http://cdn.debian.net/debian/ wheezy main contrib non-free\ndeb-src http://cdn.debian.net/debian/ wheezy main contrib non-free" >/etc/apt/sources.list'
     # chroot rootfs/ sh -c 'echo "deb http://security.debian.org/ wheezy/updates main\ndeb-src http://security.debian.org/ wheezy/updates main" >>/etc/apt/sources.list'
@@ -58,6 +72,8 @@
     # LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ /etc/init.d/ssh stop
     # LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ apt-get install ntp -V
     # LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ /etc/init.d/ntp stop
+    # LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ apt-get install file rng-tools -V
+    (rng-tools requires the kernel to be compiled with Freescale Random Number Generator support enabled)
     # ...
     # umount rootfs/proc
     # LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ apt-get install wpasupplicant -V
@@ -67,7 +83,7 @@
 
 # Resources #
 
-## conf/bootfs.txt ##
+## conf/bootfs-udoo-quad.txt ##
 
 	mmc dev 0
 	setenv bootargs console=ttymxc1,115200 root=/dev/mmcblk0p2 rootwait video=mxcfb0:dev=hdmi,1920x1080@60,if=RGB24,bpp=16 consoleblank=0 dmfc=3
