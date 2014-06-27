@@ -1,0 +1,7 @@
+# partition table of /dev/sdg
+unit: sectors
+
+/dev/sdg1 : start=     8192, size=    65536, Id= b, bootable
+/dev/sdg2 : start=    73728, size=  2343792, Id=83
+/dev/sdg3 : start=  2417520, size=  1563330, Id=83
+/dev/sdg4 : start=        0, size=        0, Id= 0

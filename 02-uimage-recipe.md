@@ -73,7 +73,7 @@ You may want to enable the following kernel settings via `make menuconfig`
     # git clone git://git.denx.de/u-boot.git
     # cd u-boot
     # [ "$TARGET_SYSTEM" = "wbquad" ] && make wandboard_quad_config || make udoo_quad_config
-    # make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j5 
+    # make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j5
     # cd ..
 
 # Firmware installation #
@@ -142,17 +142,6 @@ Using a terminal program (like `kermit` or `cu`) you should see the boot process
 
 # Resources #
 
-## conf/layer.microsd ##
-	# partition table of /dev/sdf
-	unit: sectors
-	
-	/dev/sdf1 : start=     8192, size=    65536, Id= b, bootable
-	/dev/sdf2 : start=    73728, size=  2343792, Id=83
-	/dev/sdf3 : start=  2417520, size=  1563330, Id=83
-	/dev/sdf4 : start=        0, size=        0, Id= 0
-
-## External resources ##
-
 - [http://udoo.org/download/files/Documents/UDOO_Starting_Manual_beta0.4_11_28_2013.pdf](http://udoo.org/download/files/Documents/UDOO_Starting_Manual_beta0.4_11_28_2013.pdf) (Section 2.4)
 - [http://jas-hacks.blogspot.co.uk/2013/10/imx6-ubuntu-1304-with-gpu-acceleration.html](http://jas-hacks.blogspot.co.uk/2013/10/imx6-ubuntu-1304-with-gpu-acceleration.html)
 - [http://www.udoo.org/forum/viewtopic.php?f=19&t=693](http://www.udoo.org/forum/viewtopic.php?f=19&t=693)
@@ -164,7 +153,7 @@ Using a terminal program (like `kermit` or `cu`) you should see the boot process
 - [http://www.emdebian.org/crosstools.html](http://www.emdebian.org/crosstools.html)
 - [http://wiki.wandboard.org/index.php/Wandboard_Linux_Kernel_3.10.17_Status](http://wiki.wandboard.org/index.php/Wandboard_Linux_Kernel_3.10.17_Status)
 
-### Firware ###
+## Firware ##
 
 - http://wireless.kernel.org/en/users/Drivers/brcm80211
 - https://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git
