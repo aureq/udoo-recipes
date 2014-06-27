@@ -145,8 +145,11 @@ This section assumes you're running the current shell in the chroot environment.
     # cp -dp xbmc-build/usr/lib/libvpu* xbmc-build/usr/lib/libcec* xbmc-build/usr/lib/libpxp* rootfs/usr/local/lib/
     # LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ apt-get install -V fbset libcurl3-gnutls libsmbclient libssh-4 libavahi-client3 libmicrohttpd10 libtinyxml2.6.2 libyajl2 libbluetooth3 liblzo2-2 libjpeg8 libpython2.7 python-support python-imaging libfribidi0 libpcre3 libpcrecpp0 libfreetype6 libasound2 libdbus-1-3 libmysqlclient18 libcdio13 libass4 zip libmodplug1 libtiff4 libcwiid1 libxslt1.1 libjasper1 libpng12-0 libsamplerate0 libhal1 libhal-storage1 libvorbisenc2 libcap2 libmad0 libflac8 libsqlite3-0 libmp3lame0 libiso9660-8 libusb-1.0-0 libhal-storage1
     # LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ sh -c "ldconfig"
-    # echo "xbmc:23:respawn:/imx6/xbmc/lib/xbmc/xbmc.bin" >> rootfs/etc/inittab
     # cp -pdr xbmc-build/imx6 rootfs/
+    # cp script/xbmc-watchdog rootfs/imx6/xbmc/bin/
+    # chmod 0755 rootfs/imx6/xbmc/bin/xbmc-watchdog
+    # chown root:root rootfs/imx6/xbmc/bin/xbmc-watchdog
+    # sed -i 's|^exit.*|/imx6/xbmc/bin/xbmc-watchdog|' rootfs/etc/rc.local
     # echo -e "LABEL=xbmcdata  /.xbmc   ext4   defaults,errors=remount-ro,noatime,nodiratime   0   2" >> rootfs/etc/fstab
     # mkdir rootfs/.xbmc
     # ln -s /.xbmc rootfs/root/.xbmc
