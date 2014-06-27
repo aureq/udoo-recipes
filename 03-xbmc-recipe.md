@@ -95,7 +95,7 @@ Freescale provides a number of librairies which are subject to a licence agreeme
 
 This section assumes you're running the current shell in the chroot environment. Please refer to the first section of this page.
 
-This work is in n early stage of support. A lot of credit goes back to Stéphan Rafin for his hard work.
+This work is in an early stage of support. A lot of credit goes back to Stéphan Rafin for his hard work.
 
     # git clone https://github.com/xbmc-imx6/libcec libcec-imx6
     # cd libcec-imx6
