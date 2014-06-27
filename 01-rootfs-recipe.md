@@ -66,7 +66,7 @@ There's few differences between udoo-quad and the wandboard-quad. You need to ch
     # LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ apt-get install openssh-server openssh-client -V
     # chroot rootfs/ sh -c "rm /etc/ssh/ssh_host*key*"
       (The above step and the subsequents are required if you plan to release your distribution to the general public. Each ssh host key should be locally generated and unique (ie: not coming from your kitchen).)
-        # cp scripts/ssh-keys rootfs/etc/init.d/
+        # cp script/ssh-keys rootfs/etc/init.d/
         # chmod 0755 rootfs/etc/init.d/ssh-keys
         # LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ sh -c "update-rc.d ssh-keys defaults 2>/dev/null"
     # LC_ALL=C LANGUAGE=C LANG=C chroot rootfs/ /etc/init.d/ssh stop
@@ -82,98 +82,6 @@ There's few differences between udoo-quad and the wandboard-quad. You need to ch
     # chmod 0600 rootfs/etc/network/interfaces
 
 # Resources #
-
-## scripts/ssh-keys ##
-	#!/bin/sh -e
-	### BEGIN INIT INFO
-	# Provides:             ssh-keys
-	# Required-Start:       urandom
-	# Required-Stop:
-	# X-Start-Before:
-	# Default-Start:        S
-	# Default-Stop:         0 1 6
-	# Short-Description:    OpenBSD Secure Shell server (Host Keys)
-	### END INIT INFO
-	 
-	. /usr/share/debconf/confmodule
-	db_version 2.0
-	 
-	umask 022
-	 
-	get_config_option() {
-	        option="$1"
-	 
-	        [ -f /etc/ssh/sshd_config ] || return
-	 
-	        # TODO: actually only one '=' allowed after option
-	        perl -lne 's/\s+/ /g; print if s/^\s*'"$option"'[[:space:]=]+//i' \
-	           /etc/ssh/sshd_config
-	}
-	 
-	host_keys_required() {
-	        hostkeys="$(get_config_option HostKey)"
-	        if [ "$hostkeys" ]; then
-	                echo "$hostkeys"
-	        else
-	                # No HostKey directives at all, so the server picks some
-	                # defaults depending on the setting of Protocol.
-	                protocol="$(get_config_option Protocol)"
-	                [ "$protocol" ] || protocol=1,2
-	                if echo "$protocol" | grep 1 >/dev/null; then
-	                        echo /etc/ssh/ssh_host_key
-	                fi
-	                if echo "$protocol" | grep 2 >/dev/null; then
-	                        echo /etc/ssh/ssh_host_rsa_key
-	                        echo /etc/ssh/ssh_host_dsa_key
-	                        echo /etc/ssh/ssh_host_ecdsa_key
-	                fi
-	        fi
-	}
-	 
-	create_key() {
-	        msg="$1"
-	        shift
-	        hostkeys="$1"
-	        shift
-	        file="$1"
-	        shift
-	 
-	        if echo "$hostkeys" | grep -x "$file" >/dev/null && \
-	           [ ! -f "$file" ] ; then
-	                echo -n $msg
-	                ssh-keygen -q -f "$file" -N '' "$@"
-	                echo
-	                if which restorecon >/dev/null 2>&1; then
-	                        restorecon "$file.pub"
-	                fi
-	        fi
-	}
-	 
-	create_keys() {
-	        hostkeys="$(host_keys_required)"
-	 
-	        create_key "Creating SSH1 key; this may take some time ..." \
-	                "$hostkeys" /etc/ssh/ssh_host_key -t rsa1
-	 
-	        create_key "Creating SSH2 RSA key; this may take some time ..." \
-	                "$hostkeys" /etc/ssh/ssh_host_rsa_key -t rsa
-	        create_key "Creating SSH2 DSA key; this may take some time ..." \
-	                "$hostkeys" /etc/ssh/ssh_host_dsa_key -t dsa
-	        create_key "Creating SSH2 ECDSA key; this may take some time ..." \
-	                "$hostkeys" /etc/ssh/ssh_host_ecdsa_key -t ecdsa
-	}
-	case "$1" in
-	  start)
-	        create_keys
-	  ;;
-	  *)
-	        exit 0
-	esac
-	 
-	exit 0
-
-
-## External resources ##
 
 - [https://wiki.debian.org/EmDebian/CrossDebootstrap](https://wiki.debian.org/EmDebian/CrossDebootstrap)
 - [https://wiki.debian.org/QemuUserEmulation](https://wiki.debian.org/QemuUserEmulation)
