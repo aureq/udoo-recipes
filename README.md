@@ -33,5 +33,5 @@ Supported platforms are
 
 # Recipes #
 1. [Rootfs recipe](01-rootfs-recipe.md)
-2. [uImage recipe](02-uimage-recipe.md)
+2. [Linux kernel recipe](02-kernel-recipe.md)
 3. [XBMC recipe](03-xbmc-recipe.md)
