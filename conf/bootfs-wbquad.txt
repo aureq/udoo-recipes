@@ -1,0 +1,6 @@
+mmc dev 0
+setenv bootargs console=ttymxc0,115200 root=/dev/mmcblk0p2 rootwait rw consoleblank=0 video=mxcfb0:dev=hdmi,1920x1080@60,if=RGB24,bpp=16 dmfc=3
+fatload mmc 0:1 0x12000000 zImage
+fatload mmc 0:1 0x18000000 imx6q-wandboard.dtb
+bootz 0x12000000 - 0x18000000
+

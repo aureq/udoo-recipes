@@ -131,6 +131,7 @@ Note: it's **very important** you set `DEVICE` correctly (/dev/sd?). Failing to 
     # umount rootfs/proc
     # cp -pdr rootfs/* media/rootfs/
     # cp kernel-${TARGET_SYSTEM}/arch/arm/boot/zImage kernel-${TARGET_SYSTEM}/arch/arm/boot/dts/imx6q-wandboard.dtb media/bootfs/
+    # mkimage -A arm -O linux -T script -n zImage -d conf/bootfs-${TARGET_SYSTEM}.txt media/bootfs/boot.scr
 
 ## u-boot ##
 
