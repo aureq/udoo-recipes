@@ -1,0 +1,9 @@
+firmware/*
+media/bootfs/*
+media/rootfs/*
+media/xbmc-data/*
+rootfs/*
+xbmc-build/*
+
+kernel-*
+u-boot
